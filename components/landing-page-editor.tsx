@@ -52,13 +52,15 @@ function LandingPageEditor({
   };
 
   const removeComponent = (id: string) => {
-    setComponents(components.filter((componenet) => id !== componenet.id));
+    setComponents(components.filter((component) => id !== component.id));
   };
 
-  const updateComponent = (index: number, content: string) => {
-    const newComponents = [...components];
-    newComponents[index].content = content;
-    setComponents(newComponents);
+  const updateComponent = (id: string, content: string) => {
+    setComponents(
+      components.map((component) =>
+        component.id === id ? { ...component, content } : component
+      )
+    );
   };
 
   const handlePublish = () => {
@@ -175,7 +177,7 @@ function LandingPageEditor({
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    {components.map((component, index) => (
+                    {components.map((component) => (
                       <div key={component.id}>
                         <Label
                           htmlFor={component.type}
@@ -190,7 +192,7 @@ function LandingPageEditor({
                                 id={component.type}
                                 value={component.content}
                                 onChange={(e) =>
-                                  updateComponent(index, e.target.value)
+                                  updateComponent(component.id, e.target.value)
                                 }
                               />
                             )}
@@ -201,7 +203,7 @@ function LandingPageEditor({
                                 placeholder="Image URL"
                                 value={component.content}
                                 onChange={(e) =>
-                                  updateComponent(index, e.target.value)
+                                  updateComponent(component.id, e.target.value)
                                 }
                               />
                             )}
@@ -213,7 +215,7 @@ function LandingPageEditor({
                                 placeholder={`${component.type} Content`}
                                 value={component.content}
                                 onChange={(e) =>
-                                  updateComponent(index, e.target.value)
+                                  updateComponent(component.id, e.target.value)
                                 }
                               />
                             )}

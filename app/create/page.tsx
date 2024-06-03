@@ -17,7 +17,7 @@ const Create = () => {
     }
 
     // Update the components with the new data
-    const updatedComponents = components.map((component, index) => ({
+    const updatedComponents = components.map((component) => ({
       id: nanoid(),
       type: component,
       content: getComponentContent(component),
