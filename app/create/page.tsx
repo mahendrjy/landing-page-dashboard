@@ -49,7 +49,7 @@ function getComponentContent(type: string) {
     case "Text Block":
       return "This is a sample text block";
     case "Image":
-      return "https://via.placeholder.com/1000x400";
+      return "https://www.imagelighteditor.com/img/bg-after.jpg";
     case "Footer":
       return "© 2024 Sample Page";
 
