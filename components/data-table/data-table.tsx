@@ -43,11 +43,16 @@ type Props = {
   data: any;
   columns: ColumnDef<any>[];
   searchPlaceholder: string;
-  initialColumnVisibility: VisibilityState;
+  initialColumnVisibility?: VisibilityState;
 };
 
 function DataTable(props: Props) {
-  const { data, columns, searchPlaceholder, initialColumnVisibility } = props;
+  const {
+    data,
+    columns,
+    searchPlaceholder,
+    initialColumnVisibility = {},
+  } = props;
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

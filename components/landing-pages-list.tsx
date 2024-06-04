@@ -26,7 +26,6 @@ export default function LandingPagesList({
       data={landingPages}
       columns={columns}
       searchPlaceholder="Search Landing Page..."
-      initialColumnVisibility={{}}
     />
   );
 }
