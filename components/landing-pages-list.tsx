@@ -2,9 +2,9 @@ import { DataTable, SortButton, StatusCell } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ColumnDef } from "@tanstack/react-table";
-import { LandingPage } from "./interfaces";
+import { LandingPage } from "../app/interfaces";
 
-export function renderLandingPagesList({
+export default function LandingPagesList({
   landingPages,
   fetching,
   onView,
@@ -31,7 +31,7 @@ export function renderLandingPagesList({
   );
 }
 
-export function getSkeletonColumns(): ColumnDef<LandingPage>[] {
+function getSkeletonColumns(): ColumnDef<LandingPage>[] {
   return [
     {
       accessorKey: "title",
@@ -71,7 +71,7 @@ export function getSkeletonColumns(): ColumnDef<LandingPage>[] {
   ];
 }
 
-export function getColumns({
+function getColumns({
   onView,
   onEdit,
   onDelete,
