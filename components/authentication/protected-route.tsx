@@ -10,8 +10,12 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    let token = "";
     // Retrieve the authentication token from local storage
-    const token = localStorage.getItem("authToken");
+    if (localStorage.getItem("authToken")) {
+      token = localStorage.getItem("authToken") ?? "";
+      if (typeof token !== "string") token = "";
+    }
 
     // Check if the token is valid
     if (token === "token") {
