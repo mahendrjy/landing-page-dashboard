@@ -4,22 +4,34 @@ import { LandingPage, OnPublish } from "@/app/interfaces";
 
 const useEdit = (id: string | string[]) => {
   const router = useRouter();
-  const [landingPages, setLandingPages] = useState([]);
+  const [status, setStatus] = useState("loading");
+  const [landingPages, setLandingPages] = useState<LandingPage[]>([]);
   const [landingPage, setLandingPage] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
       // Get the landing pages from local storage
-      const data =
-        JSON.parse(localStorage.getItem("landing-pages") ?? "") || [];
+      let data = [];
+      if (localStorage.getItem("landing-pages")) {
+        data = JSON.parse(localStorage.getItem("landing-pages") ?? "");
+      }
+
+      // Ensure that the data is an array
+      Array.isArray(data) || (data = []);
 
       // Set the landing pages in the state
       setLandingPages(data);
 
       // Find the landing page with the given id
-      const selectedLandingPage = data.filter(
-        (currentLandingPage: LandingPage) => currentLandingPage.id === id
-      )[0];
+      const selectedLandingPage =
+        data.filter(
+          (currentLandingPage: LandingPage) => currentLandingPage.id === id
+        )[0] ?? null;
+
+      // If there are no landing pages, set the status to not found
+      if (selectedLandingPage === null) {
+        setStatus("not-found");
+      }
 
       // Set the landing page in the state
       setLandingPage(selectedLandingPage);
@@ -55,7 +67,7 @@ const useEdit = (id: string | string[]) => {
     router.push("/");
   };
 
-  return { landingPage, onPublish };
+  return { landingPage, onPublish, status };
 };
 
 export default useEdit;

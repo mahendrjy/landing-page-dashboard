@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { LandingPage } from "@/app/interfaces";
 import { useRouter } from "next/navigation";
@@ -14,7 +15,9 @@ const useLandingPages = () => {
     let data = [];
     // Retrieve the landing pages data from local storage
     if (localStorage.getItem("landing-pages")) {
-      data = JSON.parse(localStorage.getItem("landing-pages") ?? "") ?? [];
+      data = JSON.parse(localStorage.getItem("landing-pages") ?? "");
+      // Ensure that the data is an array
+      Array.isArray(data) || (data = []);
     }
 
     if (data.length > 0) {

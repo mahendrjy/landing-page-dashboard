@@ -55,6 +55,4 @@ function getLandingPagesUI({
   ];
 }
 
-Columns.getLandingPagesUI = getLandingPagesUI;
-
 export default Columns;

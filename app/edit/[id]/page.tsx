@@ -1,16 +1,18 @@
 "use client";
 
-import React from "react";
-import Container from "@/components/common/container";
+import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import { useEdit } from "@/hooks";
-import { LandingPageEditor } from "@/components/landing-page";
+import {
+  LandingPageEditor,
+  LandingPageStatus,
+} from "@/components/landing-page";
 
 function Edit() {
   const { id } = useParams();
-  const { landingPage, onPublish } = useEdit(id);
+  const { landingPage, onPublish, status } = useEdit(id);
 
-  if (!landingPage) return <Container className="mt-4">Loading...</Container>;
+  if (!landingPage) return <LandingPageStatus status={status} />;
 
   return <LandingPageEditor landingPage={landingPage} onPublish={onPublish} />;
 }

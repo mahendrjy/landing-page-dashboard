@@ -11,6 +11,8 @@ const useCreate = () => {
     // Get the landing pages from local storage
     if (localStorage.getItem("landing-pages")) {
       landingPages = JSON.parse(localStorage.getItem("landing-pages") ?? "");
+      // Ensure that the data is an array
+      Array.isArray(landingPages) || (landingPages = []);
     }
 
     // Update the components with the new data

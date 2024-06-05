@@ -7,7 +7,7 @@ interface LandingPageViewProps {
 
 function LandingPageView({ landingPage }: LandingPageViewProps) {
   if (!landingPage) {
-    return <div>Loading...</div>;
+    return <Container className="mt-4">pika Loading...</Container>;
   }
 
   return (

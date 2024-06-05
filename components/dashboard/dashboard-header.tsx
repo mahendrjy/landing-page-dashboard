@@ -1,4 +1,5 @@
 "use client";
+
 import { PlusIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
@@ -10,9 +11,11 @@ function DashboardHeader() {
   return (
     <header>
       <div className="mx-auto flex items-center justify-between">
+        {/* Left */}
         <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900">
           Landing Pages
         </h1>
+        {/* Right */}
         <div>
           <Button
             variant="default"

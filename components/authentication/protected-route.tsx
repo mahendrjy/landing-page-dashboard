@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Container from "../common/container";
@@ -28,7 +29,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   }, [pathname, router]);
 
   if (!isAuthenticated && pathname !== "/login") {
-    return <Container className="py-4">Loading...</Container>;
+    return <Container className="mt-4">Loading...</Container>;
   }
 
   return children;
