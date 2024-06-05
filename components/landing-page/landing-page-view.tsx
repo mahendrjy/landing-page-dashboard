@@ -15,15 +15,22 @@ function LandingPageView({ landingPage }: LandingPageViewProps) {
       <div className="py-10">
         {landingPage.components.map((component: Component) => (
           <div key={component.id} className="mb-6">
+            {/* Header componet typ */}
             {component.type === "Header" && (
               <h2 className="text-2xl font-bold">{component.content}</h2>
             )}
+
+            {/* Footer componet typ */}
             {component.type === "Footer" && (
               <footer className="text-sm text-gray-500">
                 {component.content}
               </footer>
             )}
+
+            {/* Text block componet typ */}
             {component.type === "Text Block" && <p>{component.content}</p>}
+
+            {/* Image componet typ */}
             {component.type === "Image" && (
               <img src={component.content} alt="" className="w-full" />
             )}

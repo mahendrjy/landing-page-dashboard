@@ -37,6 +37,7 @@ function LandingPageCreator({ onCreate }: CreateHeaderProps) {
 
   return (
     <>
+      {/* Create Header */}
       <LandingPageCreateHeader
         title={title}
         handleSave={handleSave}
@@ -45,7 +46,7 @@ function LandingPageCreator({ onCreate }: CreateHeaderProps) {
 
       <Separator className="mb-4" />
 
-      {/* Landing page Form */}
+      {/* Create Form */}
       <LandingPageForm
         title={title}
         setTitle={setTitle}

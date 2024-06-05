@@ -64,13 +64,13 @@ function LandingPageEditor({ landingPage, onPublish }: LandingPageEditorProps) {
           handlePublish={handlePublish}
         />
 
-        {/* Header */}
+        {/* Editor Header */}
         <LandingPageEditHeader landingPage={landingPage} />
       </Sheet>
 
       <Separator className="mb-4" />
 
-      {/* Landing Page Form */}
+      {/* Editor Form */}
       <LandingPageForm
         title={title}
         setTitle={setTitle}
@@ -78,7 +78,7 @@ function LandingPageEditor({ landingPage, onPublish }: LandingPageEditorProps) {
         setDescription={setDescription}
         addComponent={addComponent}
       >
-        {/* Landing Page Components Editor */}
+        {/* Components Editor */}
         <LandingPageComponentsEditor
           components={components}
           updateComponent={updateComponent}

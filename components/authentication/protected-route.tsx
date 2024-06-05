@@ -28,6 +28,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
     }
   }, [pathname, router]);
 
+  // If the user is not authenticated and the current page is not the login page, display a loading message
   if (!isAuthenticated && pathname !== "/login") {
     return <Container className="mt-4">Loading...</Container>;
   }
