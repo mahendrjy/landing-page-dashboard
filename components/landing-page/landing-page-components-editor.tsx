@@ -10,15 +10,17 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "../ui/button";
 
+interface LandingPageComponentsEditorProps {
+  components: any[];
+  updateComponent: (id: string, content: string) => void;
+  removeComponent: (id: string) => void;
+}
+
 function LandingPageComponentsEditor({
   components,
   updateComponent,
   removeComponent,
-}: {
-  components: any[];
-  updateComponent: (id: string, content: string) => void;
-  removeComponent: (id: string) => void;
-}) {
+}: LandingPageComponentsEditorProps) {
   return (
     <>
       {components.length > 0 && (
@@ -38,6 +40,7 @@ function LandingPageComponentsEditor({
                   </Label>
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex-1">
+                      {/* Text Block */}
                       {component.type === "Text Block" && (
                         <Textarea
                           id={component.type}
@@ -47,6 +50,8 @@ function LandingPageComponentsEditor({
                           }
                         />
                       )}
+
+                      {/* Image */}
                       {component.type === "Image" && (
                         <Input
                           id={component.type}
@@ -58,6 +63,8 @@ function LandingPageComponentsEditor({
                           }
                         />
                       )}
+
+                      {/* Header and Footer */}
                       {(component.type === "Header" ||
                         component.type === "Footer") && (
                         <Input
@@ -71,6 +78,8 @@ function LandingPageComponentsEditor({
                         />
                       )}
                     </div>
+
+                    {/* Remove Component */}
                     <Button
                       variant="destructive"
                       onClick={() => removeComponent(component.id)}
