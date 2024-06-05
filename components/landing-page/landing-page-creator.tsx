@@ -35,8 +35,6 @@ function LandingPageCreator({ onCreate }: CreateHeaderProps) {
     });
   };
 
-  console.log(components);
-
   return (
     <>
       <LandingPageCreateHeader
