@@ -23,5 +23,5 @@ export interface OnPublish {
   title: string;
   description: string;
   components: Component[];
-  page: LandingPage;
+  selectedLandingPage: LandingPage;
 }

@@ -39,19 +39,21 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-type Props = {
-  data: any;
-  columns: ColumnDef<any>[];
+type Props<T> = {
+  data: T[];
+  columns: ColumnDef<T>[];
   searchPlaceholder: string;
   initialColumnVisibility?: VisibilityState;
+  noResultsText: string;
 };
 
-function DataTable(props: Props) {
+function DataTable<T>(props: Props<T>) {
   const {
     data,
     columns,
     searchPlaceholder,
     initialColumnVisibility = {},
+    noResultsText = "No results.",
   } = props;
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -81,7 +83,7 @@ function DataTable(props: Props) {
 
   return (
     <div className="w-full">
-      {/* Search Landing Pages */}
+      {/* Search */}
       <div className="flex items-center py-4 justify-end gap-3">
         <Input
           placeholder={searchPlaceholder}
@@ -159,7 +161,7 @@ function DataTable(props: Props) {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No landing pages.
+                  {noResultsText}
                 </TableCell>
               </TableRow>
             )}

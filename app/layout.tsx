@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import ProtectedRoute from "@/components/protected-route";
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
+import ProtectedRoute from "@/components/authentication/protected-route";
 
 const inter = Inter({ subsets: ["latin"] });
 

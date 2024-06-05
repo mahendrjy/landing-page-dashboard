@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import Container from "./container";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
 
 function Header() {
   const router = useRouter();
@@ -10,7 +10,7 @@ function Header() {
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    if (token) {
+    if (token === "token") {
       setIsAuthenticated(true);
     }
   }, []);

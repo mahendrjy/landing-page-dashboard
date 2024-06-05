@@ -1,16 +1,19 @@
-import React from "react";
-import Container from "./container";
 import { Component, LandingPage } from "@/app/interfaces";
+import Container from "../common/container";
 
-function LandingPageView({ page }: { page: LandingPage }) {
-  if (!page) {
+interface LandingPageViewProps {
+  landingPage: LandingPage;
+}
+
+function LandingPageView({ landingPage }: LandingPageViewProps) {
+  if (!landingPage) {
     return <div>Loading...</div>;
   }
 
   return (
     <Container>
       <div className="py-10">
-        {page.components.map((component: Component) => (
+        {landingPage.components.map((component: Component) => (
           <div key={component.id} className="mb-6">
             {component.type === "Header" && (
               <h2 className="text-2xl font-bold">{component.content}</h2>

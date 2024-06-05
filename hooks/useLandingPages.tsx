@@ -26,7 +26,7 @@ const useLandingPages = () => {
         // Once the data is "fetched", update the landing pages and stop the loading state
         setLandingPages(data);
         setFetching(false);
-      }, 1000);
+      }, 500);
     }
   }, []);
 
@@ -34,7 +34,9 @@ const useLandingPages = () => {
   const onView = (id: string) => router.push(`/view/${id}`);
   const onEdit = (id: string) => router.push(`/edit/${id}`);
   const onDelete = (id: string) => {
-    const updatedLandingPages = landingPages.filter((page) => page.id !== id);
+    const updatedLandingPages = landingPages.filter(
+      (currentLandingPage) => currentLandingPage.id !== id
+    );
     localStorage.setItem("landing-pages", JSON.stringify(updatedLandingPages));
     setLandingPages(updatedLandingPages);
   };

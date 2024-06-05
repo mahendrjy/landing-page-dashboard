@@ -1,5 +1,9 @@
-import { CaretSortIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
+import { CaretSortIcon } from "@radix-ui/react-icons";
+
+const Header = {
+  SortButton,
+};
 
 function SortButton({
   column,
@@ -20,4 +24,4 @@ function SortButton({
   );
 }
 
-export default SortButton;
+export default Header;

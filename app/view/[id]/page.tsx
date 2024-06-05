@@ -1,26 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
+import React from "react";
 import { useParams } from "next/navigation";
-import LandingPageView from "@/components/landing-page-view";
-import { Component } from "@/app/interfaces";
+import { useView } from "@/hooks";
+import { LandingPageView } from "@/components/landing-page";
 
-const ViewPage = () => {
+function ViewPage() {
   const { id } = useParams();
-  const [page, setPage] = useState(null);
+  const { landingPage } = useView(id);
 
-  useEffect(() => {
-    // Get the landing pages from local storage
-    const landingPages =
-      JSON.parse(localStorage.getItem("landing-pages") ?? "") || [];
-    // Find the landing page with the given id
-    const page = landingPages.filter((page: Component) => page.id === id)[0];
-    // Set the landing page in the state
-    setPage(page);
-  }, [id]);
+  if (!landingPage) return <div>Loading...</div>;
 
-  if (!page) return <div>Loading...</div>;
-
-  return <LandingPageView page={page} />;
-};
+  return <LandingPageView landingPage={landingPage} />;
+}
 
 export default ViewPage;

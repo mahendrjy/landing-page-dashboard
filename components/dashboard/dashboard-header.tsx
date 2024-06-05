@@ -1,7 +1,7 @@
 "use client";
 import { PlusIcon } from "lucide-react";
-import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
 
 function DashboardHeader() {
   const router = useRouter();
